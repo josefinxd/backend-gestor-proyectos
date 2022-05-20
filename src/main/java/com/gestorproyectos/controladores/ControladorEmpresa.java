@@ -19,7 +19,7 @@ import com.gestorproyectos.servicios.ServicioEmpresa;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
-@RequestMapping("/empresa/")
+@RequestMapping("/empresa")
 public class ControladorEmpresa {
 	
 	@Autowired
@@ -35,13 +35,18 @@ public class ControladorEmpresa {
 		return servicioEmpresa.crear(empresaDTO);
 	}
 	
+	@GetMapping("/{id}")
+	public Empresa buscar(@PathVariable(value = "id") Integer id) {
+		return servicioEmpresa.buscar(Long.valueOf(id));
+	}
+	
 	@PutMapping ("/{id}")
 	public Empresa actualizar(@RequestBody EmpresaDTO empresaDTO, @PathVariable(value = "id") Long id){
 		return servicioEmpresa.actualizar(empresaDTO, id);
 	}
 	
 	@DeleteMapping ("/{id}")
-	public String borrar( @PathVariable(value = "id") Long id){
+	public Empresa borrar( @PathVariable(value = "id") Long id){
 		return servicioEmpresa.borrar(id);
 	}
 }

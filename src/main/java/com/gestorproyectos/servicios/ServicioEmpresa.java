@@ -40,16 +40,16 @@ public class ServicioEmpresa {
 	}
 	
 	
-	public String borrar(Long id){
+	public Empresa borrar(Long id){
 		Empresa empresa = buscar(id);
 		
 		if (empresa!=null) {
 			repositorioEmpresa.delete(empresa);
 			logger.info("Ya lo borre, id {}", empresa.getIdempresa());
-			return "BORRADO";
+			return empresa;
 		}
 		
-		return "NO EXISTE";
+		return null;
 	}
 	
 	public Empresa buscar (Long id ){
