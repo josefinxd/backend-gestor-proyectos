@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.gestorproyectos.dto.UsuarioDTO;
 import com.gestorproyectos.entidades.Usuario;
 import com.gestorproyectos.repositorios.RepositorioUsuario;
 
@@ -19,7 +18,7 @@ public class ServicioUsuario {
 	@Autowired
 	RepositorioUsuario repositorioUsuario;
 	
-	public Usuario crear(UsuarioDTO usuarioDTO){
+	public Usuario crear(Usuario usuarioDTO){
 		Usuario usuario= new Usuario();
 		usuario.setUsuario(usuarioDTO.getUsuario());
 		usuario.setCorreo(usuarioDTO.getCorreo());
@@ -34,7 +33,7 @@ public class ServicioUsuario {
 		return usuario;
 	}
 	
-	public Usuario actualizar(UsuarioDTO usuarioDTO, Long id){
+	public Usuario actualizar(Usuario usuarioDTO, Long id){
 		Usuario usuario = buscar(id);
 		
 		if (usuario!=null) {
@@ -54,16 +53,16 @@ public class ServicioUsuario {
 	}
 	
 	
-	public String borrar(Long id){
+	public Usuario borrar(Long id){
 		Usuario usuario = buscar(id);
 		
 		if (usuario!=null) {
 			repositorioUsuario.delete(usuario);
 			logger.info("Ya lo borre, id {}", usuario.getIdusuario());
-			return "BORRADO";
+			return usuario;
 		}
 		
-		return "NO EXISTE";
+		return null;
 	}
 	
 	public Usuario buscar (Long id ){

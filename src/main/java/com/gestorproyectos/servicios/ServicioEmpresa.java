@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.gestorproyectos.dto.EmpresaDTO;
 import com.gestorproyectos.entidades.Empresa;
 import com.gestorproyectos.repositorios.RepositorioEmpresa;
 
@@ -25,7 +24,7 @@ public class ServicioEmpresa {
 		return empresaDTO;
 	}
 	
-	public Empresa actualizar(EmpresaDTO empresaDTO, Long id){
+	public Empresa actualizar(Empresa empresaDTO, Long id){
 		Empresa empresa = buscar(id);
 		
 		if (empresa!=null) {

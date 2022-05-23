@@ -19,7 +19,7 @@ import com.gestorproyectos.servicios.ServicioEmpresa;
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
 @RequestMapping("/empresa")
-public class ControladorEmpresa {
+public class ControladorAsignacion {
 	
 	@Autowired
 	ServicioEmpresa servicioEmpresa;

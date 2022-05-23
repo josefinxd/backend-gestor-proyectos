@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.gestorproyectos.entidades;
 
 import java.io.Serializable;
@@ -18,10 +14,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- *
- * @author jose_
- */
 @Entity
 @Table(name = "asignacion")
 @XmlRootElement
@@ -46,18 +38,6 @@ public class Asignacion implements Serializable {
     @JoinColumn(name = "idusuario", referencedColumnName = "idusuario")
     @ManyToOne(optional = false)
     private Usuario idusuario;
-
-    public Asignacion() {
-    }
-
-    public Asignacion(Integer idasignacion) {
-        this.idasignacion = idasignacion;
-    }
-
-    public Asignacion(Integer idasignacion, String rol) {
-        this.idasignacion = idasignacion;
-        this.rol = rol;
-    }
 
     public Integer getIdasignacion() {
         return idasignacion;
@@ -90,30 +70,4 @@ public class Asignacion implements Serializable {
     public void setIdusuario(Usuario idusuario) {
         this.idusuario = idusuario;
     }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (idasignacion != null ? idasignacion.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Asignacion)) {
-            return false;
-        }
-        Asignacion other = (Asignacion) object;
-        if ((this.idasignacion == null && other.idasignacion != null) || (this.idasignacion != null && !this.idasignacion.equals(other.idasignacion))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "com.gestorproyectos.entidades.Asignacion[ idasignacion=" + idasignacion + " ]";
-    }
-    
 }

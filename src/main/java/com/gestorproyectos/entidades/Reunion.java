@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.gestorproyectos.entidades;
 
 import java.io.Serializable;
@@ -21,10 +17,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- *
- * @author jose_
- */
 @Entity
 @Table(name = "reunion")
 @XmlRootElement
@@ -93,31 +85,6 @@ public class Reunion implements Serializable {
 
     public void setIdcliente(Usuario idcliente) {
         this.idcliente = idcliente;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (idreunion != null ? idreunion.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Reunion)) {
-            return false;
-        }
-        Reunion other = (Reunion) object;
-        if ((this.idreunion == null && other.idreunion != null) || (this.idreunion != null && !this.idreunion.equals(other.idreunion))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "com.gestorproyectos.entidades.Reunion[ idreunion=" + idreunion + " ]";
     }
     
 }

@@ -12,12 +12,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gestorproyectos.dto.UsuarioDTO;
 import com.gestorproyectos.entidades.Usuario;
 import com.gestorproyectos.servicios.ServicioUsuario;
 
 @RestController
-@RequestMapping("/usuario/")
+@RequestMapping("/usuario")
 public class ControladorUsuario {
 	
 	@Autowired
@@ -29,17 +28,22 @@ public class ControladorUsuario {
 	}
 	
 	@PostMapping
-	public Usuario crear(@RequestBody UsuarioDTO usuarioDTO){
+	public Usuario crear(@RequestBody Usuario usuarioDTO){
 		return servicioUsuario.crear(usuarioDTO);
 	}
 	
+	@GetMapping("/{id}")
+	public Usuario buscar(@PathVariable(value = "id") Integer id) {
+		return servicioUsuario.buscar(Long.valueOf(id));
+	}
+	
 	@PutMapping ("/{id}")
-	public Usuario actualizar(@RequestBody UsuarioDTO usuarioDTO, @PathVariable(value = "id") Long id){
+	public Usuario actualizar(@RequestBody Usuario usuarioDTO, @PathVariable(value = "id") Long id){
 		return servicioUsuario.actualizar(usuarioDTO, id);
 	}
 	
 	@DeleteMapping ("/{id}")
-	public String borrar( @PathVariable(value = "id") Long id){
+	public Usuario borrar( @PathVariable(value = "id") Long id){
 		return servicioUsuario.borrar(id);
 	}
 }
