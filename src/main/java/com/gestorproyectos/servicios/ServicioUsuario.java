@@ -28,6 +28,7 @@ public class ServicioUsuario {
 		usuario.setCiudad(usuarioDTO.getCiudad());
 		usuario.setMunicipio(usuarioDTO.getMunicipio());
 		usuario.setCelular(usuarioDTO.getCelular());
+		usuario.setPassword(usuarioDTO.getPassword());
 		repositorioUsuario.saveAndFlush(usuario);
 		logger.info("Ya lo guarde, id {}", usuario.getIdusuario());
 		return usuario;
@@ -45,6 +46,7 @@ public class ServicioUsuario {
 			usuario.setCiudad(usuarioDTO.getCiudad());
 			usuario.setMunicipio(usuarioDTO.getMunicipio());
 			usuario.setCelular(usuarioDTO.getCelular());
+			usuario.setPassword(usuarioDTO.getPassword());
 			repositorioUsuario.save(usuario);
 			logger.info("Ya lo actualice, id {}", usuario.getIdusuario());
 			return usuario;
