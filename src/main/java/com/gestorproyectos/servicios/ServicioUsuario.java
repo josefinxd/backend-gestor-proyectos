@@ -80,5 +80,21 @@ public class ServicioUsuario {
 	public List<Usuario> listar(){
 		return repositorioUsuario.findAll();
 	}
+	
+	public Usuario login (Usuario usuarioDTO ){
+		Usuario result =  repositorioUsuario.findByUser(usuarioDTO.getUsuario());
+		
+		if (result != null) {
+			logger.info("result {}", result.getPassword());
+			logger.info("usuario {}", usuarioDTO.getPassword());
+			if(result.getPassword().equals(usuarioDTO.getPassword()))
+				return result;
+			return null;
+		}
+			
+		
+		logger.error("No EXISTE usuario {}", usuarioDTO.getUsuario());
+		return null;
+	}
 
 }

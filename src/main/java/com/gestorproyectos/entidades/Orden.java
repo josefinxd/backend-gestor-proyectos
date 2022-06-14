@@ -30,7 +30,7 @@ public class Orden implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idorden")
-    private Integer idorden;
+    private Long idorden;
     @Basic(optional = false)
     @Column(name = "fecha")
     @Temporal(TemporalType.TIMESTAMP)
@@ -44,12 +44,15 @@ public class Orden implements Serializable {
     @JoinColumn(name = "idvendedor", referencedColumnName = "idusuario")
     @ManyToOne(optional = false)
     private Usuario idvendedor;
+    @Basic(optional = false)
+    @Column(name = "total")
+    private Double total;
 
-    public Integer getIdorden() {
+    public Long getIdorden() {
         return idorden;
     }
 
-    public void setIdorden(Integer idorden) {
+    public void setIdorden(Long idorden) {
         this.idorden = idorden;
     }
 
@@ -83,5 +86,13 @@ public class Orden implements Serializable {
 
     public void setIdvendedor(Usuario idvendedor) {
         this.idvendedor = idvendedor;
+    }
+    
+    public Double getTotal() {
+        return total;
+    }
+
+    public void setTotal(Double total) {
+        this.total = total;
     }
 }

@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gestorproyectos.entidades.Empresa;
-import com.gestorproyectos.servicios.ServicioEmpresa;
+import com.gestorproyectos.entidades.Asignacion;
+import com.gestorproyectos.servicios.ServicioAsignacion;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
@@ -22,30 +22,30 @@ import com.gestorproyectos.servicios.ServicioEmpresa;
 public class ControladorAsignacion {
 	
 	@Autowired
-	ServicioEmpresa servicioEmpresa;
+	ServicioAsignacion servicioAsignacion;
 	
 	@GetMapping("/listar")
-	public List<Empresa> listar(){
-		return servicioEmpresa.listar();
+	public List<Asignacion> listar(){
+		return servicioAsignacion.listar();
 	}
 	
 	@PostMapping
-	public Empresa crear(@RequestBody Empresa empresaDTO){
-		return servicioEmpresa.crear(empresaDTO);
+	public Asignacion crear(@RequestBody Asignacion asignacionDTO){
+		return servicioAsignacion.crear(asignacionDTO);
 	}
 	
 	@GetMapping("/{id}")
-	public Empresa buscar(@PathVariable(value = "id") Integer id) {
-		return servicioEmpresa.buscar(Long.valueOf(id));
+	public Asignacion buscar(@PathVariable(value = "id") Integer id) {
+		return servicioAsignacion.buscar(Long.valueOf(id));
 	}
 	
 	@PutMapping ("/{id}")
-	public Empresa actualizar(@RequestBody Empresa empresaDTO, @PathVariable(value = "id") Long id){
-		return servicioEmpresa.actualizar(empresaDTO, id);
+	public Asignacion actualizar(@RequestBody Asignacion asignacionDTO, @PathVariable(value = "id") Long id){
+		return servicioAsignacion.actualizar(asignacionDTO, id);
 	}
 	
 	@DeleteMapping ("/{id}")
-	public Empresa borrar( @PathVariable(value = "id") Long id){
-		return servicioEmpresa.borrar(id);
+	public Asignacion borrar( @PathVariable(value = "id") Long id){
+		return servicioAsignacion.borrar(id);
 	}
 }

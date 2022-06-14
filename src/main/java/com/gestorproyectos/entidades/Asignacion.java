@@ -28,7 +28,7 @@ public class Asignacion implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idasignacion")
-    private Integer idasignacion;
+    private Long idasignacion;
     @Basic(optional = false)
     @Column(name = "rol")
     private String rol;
@@ -39,11 +39,11 @@ public class Asignacion implements Serializable {
     @ManyToOne(optional = false)
     private Usuario idusuario;
 
-    public Integer getIdasignacion() {
+    public Long getIdasignacion() {
         return idasignacion;
     }
 
-    public void setIdasignacion(Integer idasignacion) {
+    public void setIdasignacion(Long idasignacion) {
         this.idasignacion = idasignacion;
     }
 

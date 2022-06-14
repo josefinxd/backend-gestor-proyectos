@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gestorproyectos.entidades.Detalle;
+import com.gestorproyectos.entidades.Orden;
 import com.gestorproyectos.repositorios.RepositorioDetalle;
 
 @Service
@@ -17,6 +18,9 @@ public class ServicioDetalle {
 
 	@Autowired
 	RepositorioDetalle repositorioDetalle;
+	
+	@Autowired
+	ServicioOrden servicioOrden;
 	
 	public Detalle crear(Detalle detalleDTO){
 		repositorioDetalle.saveAndFlush(detalleDTO);
@@ -63,6 +67,12 @@ public class ServicioDetalle {
 	
 	public List<Detalle> listar(){
 		return repositorioDetalle.findAll();
+	}
+	
+	public List<Detalle> listarByOrden(Orden idorden){
+		logger.info("listarByOrden {} {}", idorden.getIdorden(), idorden.getFecha());
+		logger.info("listarByOrden {}", servicioOrden.buscar(idorden.getIdorden()).getIdorden());
+		return repositorioDetalle.findByOrden(idorden);
 	}
 
 }

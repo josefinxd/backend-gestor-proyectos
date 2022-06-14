@@ -31,7 +31,7 @@ public class Reunion implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idreunion")
-    private Integer idreunion;
+    private Long idreunion;
     @Basic(optional = false)
     @Column(name = "fecha")
     @Temporal(TemporalType.TIMESTAMP)
@@ -43,23 +43,11 @@ public class Reunion implements Serializable {
     @ManyToOne(optional = false)
     private Usuario idcliente;
 
-    public Reunion() {
-    }
-
-    public Reunion(Integer idreunion) {
-        this.idreunion = idreunion;
-    }
-
-    public Reunion(Integer idreunion, Date fecha) {
-        this.idreunion = idreunion;
-        this.fecha = fecha;
-    }
-
-    public Integer getIdreunion() {
+    public Long getIdreunion() {
         return idreunion;
     }
 
-    public void setIdreunion(Integer idreunion) {
+    public void setIdreunion(Long idreunion) {
         this.idreunion = idreunion;
     }
 

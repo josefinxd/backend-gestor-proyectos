@@ -32,6 +32,7 @@ public class ServicioOrden {
 			orden.setIdcomprador(ordenDTO.getIdcomprador());
 			orden.setIdvendedor(ordenDTO.getIdvendedor());
 			orden.setTipo(ordenDTO.getTipo());
+			orden.setTotal(ordenDTO.getTotal());
 			repositorioOrden.save(orden);
 			logger.info("Ya lo actualice, id {}", orden.getIdorden());
 			return orden;

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gestorproyectos.entidades.Detalle;
+import com.gestorproyectos.entidades.Orden;
 import com.gestorproyectos.servicios.ServicioDetalle;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
@@ -47,5 +48,11 @@ public class ControladorDetalle {
 	@DeleteMapping ("/{id}")
 	public Detalle borrar( @PathVariable(value = "id") Long id){
 		return servicioDetalle.borrar(id);
+	}
+	
+	@PostMapping("/listarByOrden")
+	public List<Detalle> listarByOrden(@RequestBody Orden ordenDTO){
+		System.out.println(ordenDTO);
+		return servicioDetalle.listarByOrden(ordenDTO);
 	}
 }

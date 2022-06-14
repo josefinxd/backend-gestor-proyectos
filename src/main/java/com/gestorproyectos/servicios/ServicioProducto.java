@@ -29,7 +29,7 @@ public class ServicioProducto {
 		
 		if (producto!=null) {
 			producto.setNombre(productoDTO.getNombre());
-			producto.setCantidad(producto.getCantidad());
+			producto.setCantidad(productoDTO.getCantidad());
 			producto.setPrecio(productoDTO.getPrecio());
 			producto.setIdempresa(productoDTO.getIdempresa());
 			repositorioProducto.save(producto);
